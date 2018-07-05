@@ -1,0 +1,50 @@
+Answers
+
+1. db.Restaurants.find()
+
+2. db.Restaurants.find( { }, {name: 1, restaurant_id: 1, district: 1, cuisine: 1 } ).pretty()
+
+3. db.Restaurants.find( { }, {_id: 0, name: 1, restaurant_id: 1, district: 1, cuisine: 1 } ).pretty()
+
+4.db.Restaurants.find( { }, {_id: 0, name: 1, restaurant_id: 1, district: 1, cuisine: 1, "address.zipcode":1 } ).pretty()
+
+5.db.Restaurants.find( {district:"Bronx" }, {_id: 0, name: 1, restaurant_id: 1, district: 1, cuisine: 1 } ).pretty()
+ db.Restaurants.find( {district:"Bronx" }).pretty()
+
+6.db.Restaurants.find( {district:"Bronx" }).limit(5).pretty()
+
+7.db.Restaurants.find( {district:"Bronx" }).skip(5).limit(5)
+
+8.db.Restaurants.find( {"address.coord.0":{$lt: -95.754168}})
+
+9.db.Restaurants.find({$and:[{cuisine:{$ne:"American "}}, {"grades.score":{$gt:70}},{"address.coord.0":{$lt:-65.754168}}]}).pretty()
+
+10.db.Restaurants.find( { name: { $regex: /^wil/i } }, {_id: 1, name: 1, restaurant_id: 1, district: 1, cuisine: 1 } ).pretty()
+
+11.db.Restaurants.find({name: {$regex:"ces$",$options: "i"}},{_id: 1, name: 1, restaurant_id: 1, district: 1, cuisine: 1 }).pretty()
+
+12.db.Restaurants.find({name: {$regex:"Reg"}},{_id: 1, name: 1, restaurant_id: 1, district: 1, cuisine: 1 }).pretty()
+
+13.db.Restaurants.find( {$and : [{ $or : [ { district :{$eq:"Bronx"}} ] },{ $or : [ { cuisine :{$eq: "Chinese"}}, { cuisine:{ $eq:"American "} } ] }] } ).pretty()
+
+14. db.Restaurants.find( { $or: [{ district: { $eq: "Bronx" } },{ district: { $eq: "Staten Island" } },{ district: { $eq: "Queens" } },{ district: { $eq: "Brooklyn" } } ] }, {_id: 0, name: 1, restaurant_id: 1, district: 1, cuisine: 1 } ).pretty()
+
+15. db.Restaurants.find( { $and: [{ district: { $ne: "Bronx" } },{ district: { $ne: "Staten Island" } },{ district: { $ne: "Queens" } },{ district: { $ne: "Brooklyn" } } ] }, {_id: 0, name: 1, restaurant_id: 1, district: 1, cuisine: 1 } ).pretty()
+
+16.db.Restaurants.find({"grades.score":{$lt:10}},{_id:0, name: 1, restaurant_id: 1, district: 1, cuisine: 1 }).pretty()
+
+17. db.Restaurants.find({"address.coord.1":{$gte:42, $lte:52}},{_id:0, restaurant_id:1, name:1, address:1}).pretty()
+
+18.db.Restaurants.find().sort({"name":1}).pretty()
+
+19.db.Restaurants.find().sort({"name":-1}).pretty()
+
+20.db.Restaurants.find({},{_id:0, name:1, district:1}).sort({"name":1, "district":-1})
+
+21.db.Restaurants.find({"address.street":{$exists: true}},{})
+
+db.Restaurants.find({"address.street":{$exists: true}},{})
+
+22.db.Restaurants.find({"address.coord":{$type: 1}},{}).pretty()
+
+23. db.Restaurants.find( { name: { $regex: /^Mad/ } }, {_id: 1, name: 1, restaurant_id: 1, district: 1, cuisine: 1 } ).pretty()
