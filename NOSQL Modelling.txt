@@ -1,0 +1,29 @@
+"book"{
+        "ISBN" : 100000000,
+        "KeyWords":["keyword1",
+                      "keyword2",
+                      "keyword3",
+                      "keyword4",
+                      "keyword5"
+                   ]
+
+        "Author":{
+                  firstName: "fname",
+                  lastName: "lname",
+                  email: "email@example",
+                   }
+         "Availabilty": true,
+          "BrowingHistory":{
+             id: "studentID";
+             checkOutDate: "00.00.00"
+             returnDate: "00.00.00"
+             email: "email@example2"
+             telephone:"+13126476279"
+             
+
+           }
+         
+}
+
+Indexing Suggestion:
+Make index on Availability and BrowingHistory
